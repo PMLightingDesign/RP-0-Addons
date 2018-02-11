@@ -1,12 +1,15 @@
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\StretchyParts.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\StretchyParts.pdb
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Assembly-CSharp.dll
+D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\RealFuels.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\UnityEngine.dll
-D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Assembly-CSharp-firstpass.dll
-D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\TrackIRUnity.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\UnityEngine.UI.dll
+D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\UnityScript.Lang.dll
+D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\KSPTrackIR.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\KSPAssets.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Mono.Cecil.dll
+D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Boo.Lang.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\TDx.TDxInput.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Mono.Security.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\UnityEngine.xml

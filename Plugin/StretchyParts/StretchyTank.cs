@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 namespace StretchyParts
 {
@@ -40,25 +42,20 @@ namespace StretchyParts
             
             
 
-            var data = new BaseEventData(BaseEventData.Sender.USER);
+            var data = new BaseEventDetails(BaseEventDetails.Sender.USER);
             data.Set<string>("volName", "Tankage");
             data.Set<double>("newTotalVolume", totalVolume);
             part.SendEvent("OnPartVolumeChanged", data, 0);
         }
 
-            /*
-
-            [KSPField]
-            public string volumeName = PartVolumes.Tankage.ToString();
-
-            public void ChangeVolume(string volName, double newVolume)
-            {
-                var data = new BaseEventData(BaseEventData.Sender.USER);
-                data.Set<string>("volName", volName);
-                data.Set<double>("newTotalVolume", newVolume);
-                part.SendEvent("OnPartVolumeChanged", data, 0);
-            }
-            */
+        public void ChangeVolume(string volName, double newVolume)
+        {
+            var data = new BaseEventDetails(BaseEventDetails.Sender.USER);
+            data.Set<string>("volName", "Tankage");
+            data.Set<double>("newTotalVolume", newVolume);
+            part.SendEvent("OnPartVolumeChanged", data, 0);
         }
+
+    }
 }
 

@@ -18,7 +18,7 @@ namespace StretchyParts
         [KSPField(isPersistant = true)]
         private float maxLength = 16.0f;
 
-        //Tghe minimum length, in meters, of the tank
+        //The minimum length, in meters, of the tank
         [KSPField(isPersistant = true)]
         public float minLength = 0.25f;
 
@@ -55,6 +55,10 @@ namespace StretchyParts
         [KSPField(isPersistant = true)]
         public float massBottomCap = 1.0f;
 
+        //What if the nodes are screwy?
+        [KSPField(isPersistant = true)]
+        public float nodeMultFactor = 1.0f;
+
         private bool justSetup = false;
 
         public override void OnLoad(ConfigNode node)
@@ -85,7 +89,7 @@ namespace StretchyParts
 
             if (isInitial)
             {
-                Debug.Log("FASA Setup: length: " + setScale);
+                //Debug.Log("FASA Setup: length: " + setScale);
                 scaleTank(setScale);
                 tankLength = setScale;
             }
@@ -161,13 +165,15 @@ namespace StretchyParts
             }
             else Debug.Log("No bottom cap found!");
 
-            Debug.Log("Setting length to: " + Scale);
+            //Debug.Log("Setting length to: " + Scale);
 
             AttachNode topNode = part.FindAttachNode("top");
-            NodeUtil.updateAttachNodePosition(part, topNode, new Vector3(0f, (nodeOffsetTop + (Scale / 2f) ), 0f), topNode.orientation, true);
+            NodeUtil.updateAttachNodePosition(part, topNode, new Vector3(0f, (nodeOffsetTop + (Scale / 2f) * nodeMultFactor), 0f), topNode.orientation, true);
+            //Debug.Log("Top node result: " + ((nodeOffsetBottom + (Scale / 2f))));
 
             AttachNode bottomNode = part.FindAttachNode("bottom");
-            NodeUtil.updateAttachNodePosition(part, bottomNode, new Vector3(0f, -(nodeOffsetBottom + (Scale / 2f)), 0f), bottomNode.orientation, true);
+            NodeUtil.updateAttachNodePosition(part, bottomNode, new Vector3(0f, -(nodeOffsetBottom + (Scale / 2f) * nodeMultFactor), 0f), bottomNode.orientation, true);
+           //Debug.Log("Bottom node result: " + (-(nodeOffsetBottom + (Scale / 2f))));
         }
 
         public float GetModuleMass(float defaultMass, ModifierStagingSituation sit)
