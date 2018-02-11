@@ -35,7 +35,10 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-UnityProject
+# UnityProject
+UnityProject/Library
+UnityProject/ProjectSettings
+UnityProject/Assets/SquadCore
 dlls
 parttools
 resources
