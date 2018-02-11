@@ -36,9 +36,12 @@ sysinfo.txt
 *.unitypackage
 
 # UnityProject
-UnityProject/Library
-UnityProject/ProjectSettings
-UnityProject/Assets/SquadCore
+StretchyTanks/Library
+StretchyTanks/ProjectSettings
+StretchyTanks/Assets/SquadCore
+PBR_Tanks/Library
+PBR_Tanks/ProjectSettings
+PBR_Tanks/Assets/SquadCore
 dlls
 parttools
 resources
