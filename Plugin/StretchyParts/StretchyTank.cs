@@ -22,11 +22,14 @@ namespace StretchyParts
         [KSPField(isPersistant = true)]
         public float volumeTopCap = -1.0f;
 
+        [KSPField(isPersistant = true)]
+        public float stockScaleFactor = 1.0f;
+
         public override void scaleTank(float Scale)
         {
             base.scaleTank(Scale);
 
-            float radius = diameter / 2.0f;
+            float radius = (diameter / 2.0f) * stockScaleFactor;
             float cylinderVolume = (float)Math.PI * (float)Math.Pow((double)radius, 2.0) * Scale;
 
             if (volumeTopCap == -1.0f && volumeBottomCap == -1.0f)
@@ -38,9 +41,6 @@ namespace StretchyParts
             {
                 totalVolume = (volumeTopCap + volumeBottomCap + cylinderVolume);
             }
-
-            
-            
 
             var data = new BaseEventDetails(BaseEventDetails.Sender.USER);
             data.Set<string>("volName", "Tankage");

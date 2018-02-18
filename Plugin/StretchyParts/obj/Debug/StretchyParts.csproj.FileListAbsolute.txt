@@ -15,4 +15,3 @@ D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\Mono.Security.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\bin\Debug\UnityEngine.xml
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\obj\Debug\StretchyParts.dll
 D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\obj\Debug\StretchyParts.pdb
-D:\KSP\Projects\RP-0-Addons\Plugin\StretchyParts\obj\Debug\StretchyParts.csprojResolveAssemblyReference.cache

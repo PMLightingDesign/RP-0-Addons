@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace StretchyParts
 {
-    public class StretchyPart : PartModule , IPartMassModifier
+    public class StretchyPart : PartModule , IPartMassModifier, IPartCostModifier
     {
 
         //You MUST MUST MUST fill this out for non 1m tanks
@@ -46,6 +46,10 @@ namespace StretchyParts
         //How much does a 1m barrel section weigh?
         [KSPField(isPersistant = true)]
         public float massDelta = 1.0f;
+
+        //How much does a 1m barrel section cost?
+        [KSPField(isPersistant = true)]
+        public float costDelta = 500.0f;
 
         //How much does the top cap weigh?
         [KSPField(isPersistant = true)]
@@ -174,6 +178,17 @@ namespace StretchyParts
             AttachNode bottomNode = part.FindAttachNode("bottom");
             NodeUtil.updateAttachNodePosition(part, bottomNode, new Vector3(0f, -(nodeOffsetBottom + (Scale / 2f) * nodeMultFactor), 0f), bottomNode.orientation, true);
            //Debug.Log("Bottom node result: " + (-(nodeOffsetBottom + (Scale / 2f))));
+        }
+
+        public float GetModuleCost(float defaultCost, ModifierStagingSituation sit)
+        {
+            Debug.Log("Cost modifier..." + (tankLength * costDelta));
+            return tankLength * costDelta;
+        }
+
+        public ModifierChangeWhen GetModuleCostChangeWhen()
+        {
+            return ModifierChangeWhen.FIXED;
         }
 
         public float GetModuleMass(float defaultMass, ModifierStagingSituation sit)
