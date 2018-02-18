@@ -24,6 +24,8 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
+*.vwx
+*.psd
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -36,12 +38,11 @@ sysinfo.txt
 *.unitypackage
 
 # UnityProject
-StretchyTanks/Library
-StretchyTanks/ProjectSettings
-StretchyTanks/Assets/SquadCore
-PBR_Tanks/Library
-PBR_Tanks/ProjectSettings
-PBR_Tanks/Assets/SquadCore
+UNITY/PBR_Tanks
+UNITY/StretchyTanks/Library
+UNITY/StretchyTanks/ProjectSettings
 dlls
+images
 parttools
 resources
+

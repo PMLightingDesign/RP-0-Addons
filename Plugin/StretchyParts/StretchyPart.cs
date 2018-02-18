@@ -16,7 +16,7 @@ namespace StretchyParts
 
         //The maximum length, in meters, of the tank
         [KSPField(isPersistant = true)]
-        private float maxLength = 16.0f;
+        public float maxLength = 16.0f;
 
         //The minimum length, in meters, of the tank
         [KSPField(isPersistant = true)]
@@ -62,6 +62,14 @@ namespace StretchyParts
         //What if the nodes are screwy?
         [KSPField(isPersistant = true)]
         public float nodeMultFactor = 1.0f;
+
+        //Correct for Unity texture scale?
+        [KSPField(isPersistant = true)]
+        public float textureScaleMultiplier = 1.0f;
+
+        //Should we tile the texture?
+        [KSPField(isPersistant = true)]
+        public bool tileTexture = true;
 
         private bool justSetup = false;
 
@@ -125,11 +133,14 @@ namespace StretchyParts
 
         public virtual void scaleTank(float Scale)
         {
+            //Debug.Log("Scale is: " + Scale + " and maxLength is: " + maxLength);
 
-            if(Scale > maxLength)
+            if (Scale > maxLength)
             {
-                Scale = maxLength;
-                tankLength = maxLength;
+                Scale = maxLength * 1.0f;
+                tankLength = maxLength * 1.0f;
+
+                
             }
 
             if(Scale < minLength)
@@ -141,11 +152,16 @@ namespace StretchyParts
             Transform body = part.FindModelTransform("MiddlePart");
             if (body != null)
             {
-                Renderer[] renderers = body.GetComponentsInChildren<Renderer>();
-                foreach (Renderer r in renderers)
+                if (tileTexture)
                 {
-                    r.material.mainTextureScale = new Vector2(1.0f, Scale);
-                    r.material.SetTextureScale("_BumpMap", new Vector2(1.0f, Scale));
+                    Renderer[] renderers = body.GetComponentsInChildren<Renderer>();
+                    foreach (Renderer r in renderers)
+                    {
+
+                        r.material.mainTextureScale = new Vector2(1.0f, (Scale * textureScaleMultiplier));
+                        r.material.SetTextureScale("_BumpMap", new Vector2(1.0f, (Scale * textureScaleMultiplier)));
+
+                    }
                 }
 
                 body.localScale = new Vector3(diameter, Scale, diameter);
@@ -182,7 +198,7 @@ namespace StretchyParts
 
         public float GetModuleCost(float defaultCost, ModifierStagingSituation sit)
         {
-            Debug.Log("Cost modifier..." + (tankLength * costDelta));
+            //Debug.Log("Cost modifier..." + (tankLength * costDelta));
             return tankLength * costDelta;
         }
 
